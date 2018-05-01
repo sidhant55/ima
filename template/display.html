@@ -1,0 +1,65 @@
+
+
+<!--{{STATIC_URL}}-->
+<!--{%for item in arr%}-->
+    <!--<img src="http://localhost:8000/{{item}}" height="300" width="300">-->
+<!--{% endfor %}-->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>IMA</title>
+    <link rel="icon" type="image/png" href="{% static "images/icons/favicon.ico" %}"/>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static "css2/bootstrap.min.css" %}">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="{% static "css2/font-awesome.min.css" %}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static "style.css" %}">
+</head>
+<body>
+
+<div class="outer-container home-page">
+    <div class="container-fluid">
+        <div class="row">
+
+            {% with c=1 %}
+
+            {%for item in arr%}
+
+
+
+            <div class="col-12 col-md-6 col-lg-3 no-padding">
+                <div class="portfolio-content">
+
+                        <img src="{% static item %}" height="450" width="450" >
+
+                    <div class="entry-content flex flex-column align-items-center justify-content-center">
+                        <h6><a href="http://34.203.210.28:8080/tmp/{{item}}">http://34.203.210.28:8080/tmp/{{item}}</a></h6>
+
+                        <ul class="flex flex-wrap justify-content-center">
+                            <li><a href="#">Portfolio,</a></li>
+                            <li><a href="#">Tree</a></li>
+                        </ul>
+                    </div><!-- .entry-content -->
+                </div><!-- .portfolio-content -->
+            </div><!-- .col -->
+
+            {% endfor%}
+            {% endwith %}
+
+
+        </div><!-- .row -->
+    </div><!-- .container-fluid -->
+</div><!-- .outer-container -->
+
+</body>
+</html>
