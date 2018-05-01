@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['localhost','34.203.210.28']
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'sidhant97iem@gmail.com'
-EMAIL_HOST_PASSWORD = 'jho5t55553855'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 
 
