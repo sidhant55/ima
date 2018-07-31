@@ -1,11 +1,14 @@
 config==0.3.9
 dj-config-url==0.1.1
+dj-database-url==0.5.0
 Django==1.11.6
+django-heroku==0.3.1
 djangorestframework==3.7.1
 gunicorn==19.7.1
 olefile==0.44
 Pillow==4.3.0
+psycopg2==2.7.1
 python-decouple==3.1
 pytz==2017.2
+simplejson==3.14.0
 whitenoise==3.3.1
-psycopg2==2.7.1

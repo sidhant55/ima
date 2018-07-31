@@ -162,3 +162,6 @@ STATIC_URL = '/tmp/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'tmp'),
 )
+
+
+django_heroku.settings(locals())
