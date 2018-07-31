@@ -89,7 +89,7 @@ def Sign(request):
         print(serial)
         serial.save()
         request.session['email']=email
-        link = "http://34.203.210.28:8000/api/" + email + "/" + key
+        link = "https://imagemanagement-api.herokuapp.com/api/" + email + "/" + key
         return render(request,'index.html',{'name': name,'link':link})
     return Response(status=status.HTTP_400_BAD_REQUEST)
 
@@ -149,7 +149,7 @@ def List(request):
         for chunk in img.chunks():
             f.write(chunk)
 
-        link="http://34.203.210.28:8000/api/"+email+"/"+obj[0]['key']
+        link="https://imagemanagement-api.herokuapp.com/api/"+email+"/"+obj[0]['key']
         return render(request, 'index.html', {'name': obj[0]['name'],'link':link})
 
 
@@ -170,7 +170,7 @@ def Delete(request):
         os.remove(dir_path)
     except BaseException as e:
         return Response(status=status.HTTP_400_BAD_REQUEST)
-    link = "http://34.203.210.28:8000/api/" + email + "/" + obj[0]['key']
+    link = "https://imagemanagement-api.herokuapp.com/api/" + email + "/" + obj[0]['key']
     return render(request, 'index.html', {'name': obj[0]['name'],'link':link})
 
 
@@ -202,7 +202,7 @@ def Patch(request):
         return Response(status=status.HTTP_400_BAD_REQUEST)
     for chunk in img.chunks():
         f.write(chunk)
-    link = "http://34.203.210.28:8000/api/" + email + "/" + obj[0]['key']
+    link = "https://imagemanagement-api.herokuapp.com/api/" + email + "/" + obj[0]['key']
     return render(request, 'index.html', {'name': obj[0]['name'],'link':link})
 
 
@@ -237,7 +237,7 @@ def LogIn(request):
         if (request.session['email']!=None):
             email=request.session['email']
             obj = user.objects.filter(email=email).values('name','key')
-            link = "http://34.203.210.28:8000/api/" + email + "/" + obj[0]['key']
+            link = "https://imagemanagement-api.herokuapp.com/api/" + email + "/" + obj[0]['key']
             return render(request, 'index.html', {'name': obj[0]['name'],'link':link})
     except:
         print("No session")
@@ -249,7 +249,7 @@ def LogIn(request):
         print(len(obj))
         if (len(obj)==1):
             request.session['email'] = email
-            link = "http://34.203.210.28:8000/api/" + email + "/" + key
+            link = "https://imagemanagement-api.herokuapp.com/api/" + email + "/" + key
             return render(request, 'index.html', {'name': obj[0]['name'],'link':link})
         else:
             form = Loginform()
@@ -283,7 +283,7 @@ def Api(request,email,key):
             arr = {}
             # store location of the entire images inside directory dir_path
             for i in range(len(img_list)):
-                arr[str(i)]=str("http://34.203.210.28:8000/tmp/"+folder + "/" + img_list[i])
+                arr[str(i)]=str("https://imagemanagement-api.herokuapp.com/tmp/"+folder + "/" + img_list[i])
 
             data = json.dumps(arr)
             print (data)
